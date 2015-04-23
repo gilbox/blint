@@ -1,0 +1,14 @@
+.Foo {
+  &-bar {
+    color: red;
+    display: inline-block;
+  }
+
+  .isHidden &-bar {
+    display: none;
+  }
+
+  &-ack:hover {
+    border: 2px solid green;
+  }
+}

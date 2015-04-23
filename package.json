@@ -1,0 +1,30 @@
+{
+  "name": "blint",
+  "version": "0.0.0",
+  "description": "css-bliss linter",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack --progress --colors --watch",
+    "build-npm": "rm -rf build/npm && babel -d build/npm/lib ./src/blint.js && cp README.md build/npm && node -p 'p=require(\"./package-npm\");JSON.stringify(p,null,2)' > build/npm/package.json",
+    "test": "jsxhint ."
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "lint",
+    "linter",
+    "css-bliss"
+  ],
+  "author": "Gil Birman <g@gilbox.me> (http://gilbox.me/)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^4.4.5",
+    "babel-core": "^4.4.6",
+    "babel-loader": "^4.0.0",
+    "bundle-loader": "^0.5.2",
+    "json-loader": "^0.5.1"
+  },
+  "dependencies": {
+    "gonzales-pe": "^2.0.2"
+  }
+}
