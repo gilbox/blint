@@ -1,19 +1,25 @@
 {
   "name": "blint",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "css-bliss linter",
-  "main": "index.js",
+  "main": "src/blint-react.js",
+  "repository": "https://github.com/gilbox/blint.git",
   "scripts": {
     "watch": "webpack --progress --colors --watch",
-    "build-npm": "rm -rf build/npm && babel -d build/npm/lib ./src/blint.js && cp README.md build/npm && node -p 'p=require(\"./package-npm\");JSON.stringify(p,null,2)' > build/npm/package.json",
-    "test": "jsxhint ."
+    "build-npm": "rm -rf build/npm && babel -d build/npm/ ./src/blint-react.js && cp README.md build/npm && node -p 'p=require(\"./package-npm\");JSON.stringify(p,null,2)' > build/npm/package.json",
+    "chrome": "./node_modules/karma/bin/karma start",
+    "chrome1": "./node_modules/karma/bin/karma start --single-run",
+    "test": "npm run chrome1",
+    "publish": "npm test && npm publish build/npm/"
+
   },
   "keywords": [
     "css",
     "scss",
     "lint",
     "linter",
-    "css-bliss"
+    "css-bliss",
+    "react"
   ],
   "author": "Gil Birman <g@gilbox.me> (http://gilbox.me/)",
   "license": "MIT",
@@ -22,9 +28,20 @@
     "babel-core": "^4.4.6",
     "babel-loader": "^4.0.0",
     "bundle-loader": "^0.5.2",
-    "json-loader": "^0.5.1"
+    "jasmine-core": "^2.2.0",
+    "json-loader": "^0.5.1",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.8",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-sourcemap-loader": "^0.3.4",
+    "karma-spec-reporter": "0.0.19",
+    "karma-webpack": "^1.5.0",
+    "react": "^0.13.2"
   },
   "dependencies": {
-    "gonzales-pe": "^2.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=0.12.0"
   }
 }

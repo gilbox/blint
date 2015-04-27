@@ -91,5 +91,8 @@ if ("production" !== process.env.NODE_ENV) { // don't compile in production
       lint(opts.className, elementType);
     }
     return createElement.apply(this, Array.prototype.slice.call(arguments));
-  }
+  };
+
+  module.exports = lint;
 }
+
